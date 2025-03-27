@@ -675,4 +675,7 @@
 
     <!-- Content description of preview pager in colors preview -->
     <string name="colors_viewpager_content_description">Color preview</string>
+
+    <string name="ongoing_action_chip_title">Enable Ongoing ProgressBar Chip</string>
+    <string name="ongoing_action_chip_summary">Show progressbar chip in statusbar which features ongoing action progress from a notification</string>
 </resources>
