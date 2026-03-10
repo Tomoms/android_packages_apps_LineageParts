@@ -1,0 +1,33 @@
+package org.lineageos.lineageparts.statusbar;
+
+import android.content.ContentResolver;
+import android.content.Context;
+import android.os.Bundle;
+import android.os.UserHandle;
+import android.provider.Settings;
+
+import org.lineageos.lineageparts.R;                                                                                                                                                             
+import org.lineageos.lineageparts.SettingsPreferenceFragment;
+
+public class OngoingProgressBar extends SettingsPreferenceFragment {
+
+    public static final String TAG = "OngoingProgressBar";
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        addPreferencesFromResource(R.xml.ongoing_progress_settings);
+    }
+
+    public static void reset(Context context) {
+        ContentResolver resolver = context.getContentResolver();
+        Settings.System.putIntForUser(resolver,
+                Settings.System.ONGOING_ACTION_CHIP, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.ONGOING_MEDIA_PROGRESS, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.ONGOING_COMPACT_MODE, 0, UserHandle.USER_CURRENT);
+    }
+
+}
